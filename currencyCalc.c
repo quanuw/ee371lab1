@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Chnage 
 void main() {
 	setbuf(stdout, NULL);
 	int whatToDo = 0;
