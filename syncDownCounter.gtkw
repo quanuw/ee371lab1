@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Sun Apr 03 04:40:10 2016
+[*]
+[dumpfile] "C:\Users\Quan\EE371\ee371lab1\syncDownCounter_tb.vcd"
+[dumpfile_mtime] "Sun Apr 03 04:34:24 2016"
+[dumpfile_size] 3772
+[savefile] "C:\Users\Quan\EE371\ee371lab1\syncDownCounter.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-2.378676 9 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] syncDownCounter_tb.
+[sst_width] 197
+[signals_width] 94
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+syncDownCounter_tb.sd_counter.clk
+@22
+syncDownCounter_tb.sd_counter.d[3:0]
+@29
+syncDownCounter_tb.sd_counter.out[3:0]
+@28
+syncDownCounter_tb.sd_counter.rst
+[pattern_trace] 1
+[pattern_trace] 0
