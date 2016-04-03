@@ -1,0 +1,5 @@
+module johnsonDown(input clk, input reset, output signal);
+	reg clk, reset;
+	wire signal;
+	
+	
