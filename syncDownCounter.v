@@ -1,10 +1,25 @@
 `include "DFlipFlop.v"
 
+// this module will simulate the operation of a 4 bit synchronous down counter.
 module syncDownCounter(clk, rst, out);
 	input clk;
 	input rst;
 	output [3:0] out;
 	wire [3:0] d;
+	
+	// assign each bit of wire to logical operations with outputs.
+	assign d[0] = ~out[0];
+	assign d[1] = out[1] ~^ out[0];
+	assign d[2] = out[2] ~^ (out[1] | out[0]);
+	assign d[3] = out[3] ~^ (out[2] | out[1] | out[0]);
+
+	// inputs each bit of wire d to a D flip flop.
+	// outputs of D flip flops are the bits of the output out.
+	DFlipFlop dff0(.q(out[0]), .qBar(), .D(d[0]), .clk, .rst);
+	DFlipFlop dff1(.q(out[1]), .qBar(), .D(d[1]), .clk, .rst);
+	DFlipFlop dff2(.q(out[2]), .qBar(), .D(d[2]), .clk, .rst);
+	DFlipFlop dff3(.q(out[3]), .qBar(), .D(d[3]), .clk, .rst);
+endmodule
 
 	/* truth table:
 		15. 1 1 1 1 
@@ -24,14 +39,3 @@ module syncDownCounter(clk, rst, out);
 		1.  0 0 0 1
 		0.  0 0 0 0
 	*/
-	
-	assign d[0] = ~out[0];
-	assign d[1] = out[1] ~^ out[0];
-	assign d[2] = out[2] ~^ (out[1] | out[0]);
-	assign d[3] = out[3] ~^ (out[2] | out[1] | out[0]);
-
-	DFlipFlop dff0(.q(out[0]), .qBar(), .D(d[0]), .clk, .rst);
-	DFlipFlop dff1(.q(out[1]), .qBar(), .D(d[1]), .clk, .rst);
-	DFlipFlop dff2(.q(out[2]), .qBar(), .D(d[2]), .clk, .rst);
-	DFlipFlop dff3(.q(out[3]), .qBar(), .D(d[3]), .clk, .rst);
-endmodule
