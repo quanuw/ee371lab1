@@ -4,15 +4,15 @@ module syncDownCounter_gl(clk, rst, out);
 	input clk, rst;
 	wire [3:0] d;
 	output[3:0] out;
-	output wire orOut1, orOut2;
+	wire orOut1, orOut2;
 
 
 	not firstBit(d[0], out[0]);
 	xnor secondBit(d[1], out[1], out[0]);
 	or orOne(orOut1, out[1], out[0]);
-	xnor thirdBit(d[2], out[2], (out[1] | out[0]));
-	or orOut2(orOut2, out[2], out[1], out[0]);
-	xnor fourthBit(d[3], out[3], (out[2] | out[1] | out[0]));
+	xnor thirdBit(d[2], out[2], orOut1);
+	or orTwo(orOut2, out[2], out[1], out[0]);
+	xnor fourthBit(d[3], out[3], orOut2);
 
 	DFlipFlop dff0(.q(out[0]), .qBar(), .D(d[0]), .clk, .rst);
 	DFlipFlop dff1(.q(out[1]), .qBar(), .D(d[1]), .clk, .rst);
@@ -57,7 +57,7 @@ module syncDownCounter_gl_tester(out, clk, rst);
 		rst <= 1'b1 ; @(posedge clk);
 		rst <= 1'b0 ; @(posedge clk);
 		rst <= 1'b1 ; @(posedge clk);
-		repeat(10) @(posedge clk);
+		repeat(32) @(posedge clk);
 		$finish;
 	end
 	
