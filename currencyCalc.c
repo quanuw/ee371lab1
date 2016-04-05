@@ -1,19 +1,24 @@
+// This program allows the user to convert an amount of curreny given an exchange rate.
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 // pre:
 // post: outputs the converted currency given an int option to decide conversion direction.
 void currencyConverter(int option) {
 	float money;
 	float exRate;
-	printf("Enter amount in %s: ", option == 1 ? "dollars" : "foreign currency"); // uses ternary operator ?: to decide string to output.
-	scanf(" %f", &money); // takes in the user input and stores value in the variable. needs ampersand(pointer) to avoid a segmentation fault error.
-	printf("What is the exchange rate? ");
+	printf("Enter amount in %s: ", option == 1 ? "dollars" : "foreign currency");
+	scanf(" %f", &money); 
+	printf("What is the exchange rate? "); 
 	scanf(" %f", &exRate);
-	printf("%.2f equals %.2f in %s.", money, money * exRate, option == 1 ? "US dollars" : "the foreign currecy");
+	printf("%.2f equals %.2f in %s.", money, money * exRate, 
+			option == 1 ? "US dollars" : "the foreign currecy");
 }
 
+// pre:
+// post: converts a certain amount of currency into a foreign currency.
+// prompts for an int input to determine output.
 void main() {
 	setbuf(stdout, NULL);
 	int whatToDo = 0;
