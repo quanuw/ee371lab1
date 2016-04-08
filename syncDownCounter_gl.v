@@ -5,8 +5,7 @@ module syncDownCounter_gl(clk, rst, out);
 	wire [3:0] d;
 	output[3:0] out;
 	wire orOut1, orOut2;
-
-
+	
 	not firstBit(d[0], out[0]);
 	xnor secondBit(d[1], out[1], out[0]);
 	or orOne(orOut1, out[1], out[0]);

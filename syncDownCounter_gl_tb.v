@@ -40,5 +40,4 @@ module syncDownCounter_gl_tester(out, clk, rst);
 		repeat(32) @(posedge clk);
 		$finish;
 	end
-	
 endmodule
