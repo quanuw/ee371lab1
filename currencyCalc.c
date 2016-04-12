@@ -52,15 +52,18 @@ void currencyConverter(int option) {
 void main() {
 	setbuf(stdout, NULL);
 	int whatToDo = 0;
-	printf("\n");
-	printf("Enter an option.\n");
-	printf("1. convert dollars to foreign currency.\n");
-	printf("2. convert foreign currency to dollars.\n");
-	printf("Please enter an option: ");
-	scanf(" %d", &whatToDo);
-	if (whatToDo == 1 || whatToDo == 2) {
-		currencyConverter(whatToDo);
-	} else { // user must input a 1 or 2.
-		printf("Please choose option 1 or 2.\n");
-	}
+	do {
+		printf("\n");
+		printf("Enter an option.\n");
+		printf("1. convert dollars to foreign currency.\n");
+		printf("2. convert foreign currency to dollars.\n");
+		printf("Please enter an option: ");
+		scanf(" %d", &whatToDo);
+		printf("\n");
+		if (whatToDo == 1 || whatToDo == 2) {
+			currencyConverter(whatToDo);
+		} else { // user must input a 1 or 2.
+			printf("Please choose option 1 or 2.");
+		}
+	} while (whatToDo > 2 || whatToDo < 1);
 }
