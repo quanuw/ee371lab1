@@ -1,4 +1,4 @@
-`include "DFlipFlop.v"
+//`include "DFlipFlop.v"
 
 // this module will simulate the operation of a 4 bit synchronous down counter.
 module syncDownCounter(clk, rst, out);
