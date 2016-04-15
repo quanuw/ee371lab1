@@ -12,8 +12,9 @@ SW);
 	
 
 	clock_divider dividclock(.clock(CLOCK_50), .divided_clocks(divided_clocks));
-	RippleDownCounter_4bit RippleDown(.clk(divided_clocks[25]), .rst(SW[9]), .count(CounterLights));
-	
-	assign LEDR[3:0] = CounterLights;
+	RippleDownCounter_4bit RippleDown(.clk(divided_clocks[25]), .rst(SW[9]), .count(LEDR[3:0]));
+	// syncDownCounter(.clk(divided_clocks[25]), .rst(SW[9]), .out(LEDR[3:0]));
+	// johnsonDown johnsonDownCounter(.clk(divided_clocks[25]), .reset(SW[9]), .signal(LEDR[3:0]));
+	// counter4 schematic (.clock(divided_clocks[25]), .reset(SW[9]), .out(LEDR[3:0]));
 	
 endmodule
