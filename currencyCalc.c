@@ -43,7 +43,7 @@ void currencyConverter(int option) {
 	printf("What is the exchange rate? ");
 	scanf(" %f", &exRate);
 	printf("%.2f equals %.2f in %s.", money, money * exRate,
-			option == 1 ? "US dollars" : "the foreign currecy");
+			option == 1 ? "the foreign currency" : "US dollars");
 }
 
 // pre:
